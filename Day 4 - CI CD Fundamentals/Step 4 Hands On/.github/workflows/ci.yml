@@ -1,0 +1,14 @@
+name: Day 4 CI 
+
+on:
+    push:
+
+jobs: 
+    build:
+        runs-on: ubuntu-latest
+        steps:
+        - name : checkout
+          uses : actions/checkout@v4
+          
+        - name : build docker file 
+          run : docker build -t day4 .
