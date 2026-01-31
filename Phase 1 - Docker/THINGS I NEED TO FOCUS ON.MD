@@ -1,20 +1,6 @@
-THINGS TO FOCUS ON (PHASE 1 — DEVOPS LOCK-IN)
-
-~~Docker Compose (highest priority) — DONE ON 15/01/26~~
-
-- ~~Multi-service systems~~
-- ~~Networking & ports~~
-- ~~ENV handling~~
-- ~~Break/fix practice~~
-
-Docker Volumes
-  - Persistence vs ephemerality
-  - Volumes with Compose
-  - Realistic data scenarios
-
+THINGS TO FOCUS ON 
 
 NGINX/ FASTAPI
-
 
 ❌ NOT A PRIORITY (FOR NOW)
 
