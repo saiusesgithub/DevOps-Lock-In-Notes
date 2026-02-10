@@ -1,0 +1,1 @@
+bucket_name = "test-bucket-terraform-day5"

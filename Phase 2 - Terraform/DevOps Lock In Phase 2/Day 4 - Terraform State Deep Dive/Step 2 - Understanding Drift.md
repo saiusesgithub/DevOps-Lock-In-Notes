@@ -1,5 +1,5 @@
 # Day 4 — Step 02: Understanding Drift
-**Date:** February 8, 2026  
+**Date:** February 9, 2026  
 **Phase:** DevOps Lock-In — Phase 2 (Terraform)  
 **Theme:** Why drift exists, why Terraform allows it, and why it’s dangerous  
 

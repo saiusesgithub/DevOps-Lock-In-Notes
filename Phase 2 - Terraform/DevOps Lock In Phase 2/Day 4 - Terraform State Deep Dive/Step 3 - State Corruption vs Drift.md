@@ -1,5 +1,5 @@
 # Day 4 — Step 03: State Corruption vs Drift
-**Date:** February 8, 2026  
+**Date:** February 9, 2026  
 **Phase:** DevOps Lock-In — Phase 2 (Terraform)  
 **Theme:** When Terraform’s memory itself becomes wrong  
 

@@ -1,5 +1,5 @@
 # Day 4 — Step 04: State Recovery Strategies (Safe vs Unsafe)
-**Date:** February 8, 2026  
+**Date:** February 9, 2026  
 **Phase:** DevOps Lock-In — Phase 2 (Terraform)  
 **Theme:** How to recover when state is wrong — without destroying infrastructure  
 

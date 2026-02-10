@@ -1,6 +1,6 @@
 # Day 4 — Step 06: State Recovery via Import (Hands-On)
 
-**Date:** February 8, 2026
+**Date:** February 9, 2026
 
 **Phase:** DevOps Lock-In — Phase 2 (Terraform)
 
