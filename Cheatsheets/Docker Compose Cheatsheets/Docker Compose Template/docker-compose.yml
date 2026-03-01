@@ -1,0 +1,135 @@
+version: "3.9"
+
+############################################
+#              SERVICES
+############################################
+
+services:
+
+  ##########################################
+  #               APP SERVICE
+  ##########################################
+
+  app:
+    # Use image OR build (not both at same time)
+
+    # Option 1: Use prebuilt image
+    # image: yourdockerhub/app:latest
+
+    # Option 2: Build from Dockerfile
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        APP_ENV: production
+
+    container_name: my_app_container
+
+    ########################################
+    # Ports
+    ########################################
+    ports:
+      - "3000:3000"
+      # "127.0.0.1:3000:3000"  # Local-only binding
+
+    ########################################
+    # Environment Variables
+    ########################################
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      DB_HOST: db
+
+    # OR load from file
+    # env_file:
+    #   - .env
+
+    ########################################
+    # Volumes
+    ########################################
+
+    volumes:
+      # Bind mount for development
+      - ./logs:/app/logs
+
+      # Named volume example
+      # - app_data:/app/data
+
+    ########################################
+    # Restart Policy
+    ########################################
+    restart: unless-stopped
+    # restart: always
+    # restart: on-failure
+    # restart: "no"
+
+    ########################################
+    # Depends On
+    ########################################
+    depends_on:
+      - db
+
+    ########################################
+    # Networks
+    ########################################
+    networks:
+      - backend
+
+    ########################################
+    # Resource Limits
+    ########################################
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 512M
+
+    ########################################
+    # Logging Configuration
+    ########################################
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  ##########################################
+  #               DATABASE
+  ##########################################
+
+  db:
+    image: postgres:15-alpine
+
+    container_name: postgres_db
+
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: mydatabase
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    ports:
+      - "5432:5432"
+
+    restart: unless-stopped
+
+    networks:
+      - backend
+
+############################################
+#              NETWORKS
+############################################
+
+networks:
+  backend:
+    driver: bridge
+
+############################################
+#              VOLUMES
+############################################
+
+volumes:
+  postgres_data:
+  # app_data:
