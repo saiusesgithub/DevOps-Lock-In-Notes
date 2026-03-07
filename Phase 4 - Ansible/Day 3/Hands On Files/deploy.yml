@@ -1,0 +1,19 @@
+---
+- hosts: web
+  become: true
+
+  vars:
+    container_name: nginx_container
+    image_name: nginx
+    host_port: 80
+    container_port: 80
+
+  tasks:
+
+    - name: Run application container
+      docker_container:
+        name: "{{ container_name }}"
+        image: "{{ image_name }}"
+        state: started
+        ports:
+          - "{{ host_port }}:{{ container_port }}"
