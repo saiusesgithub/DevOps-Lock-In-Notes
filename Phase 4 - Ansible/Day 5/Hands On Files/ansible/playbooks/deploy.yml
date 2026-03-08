@@ -1,0 +1,32 @@
+- hosts: [web]
+  become: true
+
+  vars:
+    host_port: 80
+    container_port: 80
+    container_name: nginx_container
+    image_name: nginx
+
+  tasks:
+
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+    
+    - name: Install nginx
+      apt:
+        name: nginx
+        state: present
+
+    # - name: Run application container
+    #   docker_container:
+    #     name: "{{ container_name }}"
+    #     image: "{{ image_name }}"
+    #     state: started
+    #     ports:
+    #       - "{{ host_port }}:{{ container_port }}"
